@@ -1,23 +1,21 @@
 package entities;
 
-//import java.util.Arrays;s
-
-public class Vetor {
+public class VetorObjetos {
 	
-	private String[] elementos;
+	private Object[] elementos;
 	private int tamanho;
 	
-	public Vetor(int capacidade) {
-		this.elementos = new String[capacidade];
+	public VetorObjetos(int capacidade) {
+		this.elementos = new Object[capacidade];
 		this.tamanho = 0;
 		
 	}
 	
-	public Vetor() {
+	public VetorObjetos() {
 		
 	}
 //	ADCIONA UM VALOR DENTRO DE UM ARRAY
-	public boolean adciona(String elemento) {
+	public boolean adciona(Object elemento) {
 		
 		this.aumentaCapacidade();
 		
@@ -59,8 +57,8 @@ public class Vetor {
 		return s.toString();
 	}
 	
-//	BUSCAR POSICAO
-	public String busca(int posicao) {
+//	BUSCAR POSICAO E MOSTRA O ELEMENTO
+	public Object busca(int posicao) {
 		
 		if (!(posicao >= 0 && posicao < this.tamanho)) {
 			throw new IllegalArgumentException("Posição inválida");
@@ -69,25 +67,8 @@ public class Vetor {
 		return this.elementos[posicao];
 	}
 	
-//	VERIFICAR SE O ELEMENTO EXISTE
-//	public boolean verificar(String elemento) {
-//		
-//		for (int i = 0; i <= this.tamanho; i++) {
-//			
-////			if DE UMA LINHA
-////			if (this.elementos[i].equals(elemento)) return true;
-//			if (this.elementos[i].equals(elemento)) {
-//				return true;
-//			}
-//			
-//		}
-//		
-//		return false;
-//		
-//	}
-//	
-	
-	public int verificar(String elemento) {
+//	VAI RETORNAR A POSIÇÃO DO ELEMENTO
+	public int verificar(Object elemento) {
 		
 		for (int i = 0; i < this.tamanho; i++) {
 			if (this.elementos[i].equals(elemento)) {
@@ -101,7 +82,7 @@ public class Vetor {
 	
 //	ADD ELEMENTO EM QUALQUER POSIÇÃO
 	
-	public boolean adciona(int posicao, String elemento) {
+	public boolean adciona(int posicao, Object elemento) {
 		
 		if (!(posicao >= 0 && posicao < this.tamanho)) {
 			throw new IllegalArgumentException("Posição inválida");
@@ -125,7 +106,7 @@ public class Vetor {
 	private void aumentaCapacidade() {
 		
 		if (this.tamanho == this.elementos.length) {
-			String[] elementosNovos = new String[this.elementos.length*2];
+			Object[] elementosNovos = new Object[this.elementos.length * 2];
 			
 			for (int i = 0; i < this.elementos.length; i++) {
 				elementosNovos[i] = this.elementos[i];
@@ -148,25 +129,5 @@ public class Vetor {
 		
 		this.tamanho--;
 	}
-	
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
